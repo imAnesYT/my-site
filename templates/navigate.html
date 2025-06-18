@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>{{ section|capitalize }} | imAnesYT</title>
+  <style>
+    body {
+      background: linear-gradient(to right, #141e30, #243b55);
+      color: white;
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 2rem;
+      text-align: center;
+    }
+    nav a {
+      margin: 0 10px;
+      color: #00bfff;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1.1rem;
+    }
+    nav a:hover {
+      text-decoration: underline;
+    }
+    .section {
+      margin-top: 2rem;
+      padding: 1.5rem;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 10px;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    ul {
+      list-style: none;
+      padding-left: 0;
+    }
+    li {
+      margin-bottom: 1rem;
+    }
+    a.project-link {
+      color: #00ffcc;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <h1>imAnesYT</h1>
+  <nav>
+    <a href="/navigate?q=home">Home</a>
+    <a href="/navigate?q=about">About</a>
+    <a href="/navigate?q=links">Links</a>
+    <a href="/navigate?q=projects">Projects</a>
+  </nav>
+
+  <div class="section">
+    {% if section == 'home' %}
+      <h2>👋 Hi everyone!</h2>
+      <p>
+        Welcome to my simple website.<br>
+        I'm <strong>Anes</strong> from <strong>Algeria</strong> 🇩🇿.<br>
+        I'm <strong>14 years old</strong> and a <strong>simple Python developer</strong> (still learning).<br>
+        Here you'll find my projects and progress as I grow.
+      </p>
+
+    {% elif section == 'about' %}
+      <h2>👤 About</h2>
+      <p>
+        I'm Anes, a young developer from Algeria. I'm 14 years old and passionate about Python programming.<br>
+        I enjoy learning new things, building apps, and sharing my work.
+      </p>
+
+    {% elif section == 'links' %}
+      <h2>🔗 My Links</h2>
+      <ul>
+        <li><a href="https://youtube.com/@imAnesYT" target="_blank">📺 YouTube</a></li>
+        <li><a href="mailto:imanesyt@example.com">📧 Email</a></li>
+        <li><a href="https://discord.gg/yourserver" target="_blank">💬 Discord Server</a></li>
+      </ul>
+
+    {% elif section == 'projects' %}
+      <h2>💼 Projects</h2>
+      <ul>
+        <li><a class="project-link" href="/navigate?q=projects/buildsnap">📦 BuildSnap</a> — Python packaging CLI</li>
+      </ul>
+
+    {% elif section == 'project_detail' %}
+      {% if project == 'buildsnap' %}
+        <h2>📦 BuildSnap</h2>
+        <p>A modern CLI tool for building and publishing Python packages with ease. Handles `pyproject.toml`, `setup.py`, and more.</p>
+
+      {% else %}
+        <h2>❓ Unknown Project</h2>
+        <p>This project doesn't exist. <a href="/navigate?q=projects">Go back to all projects</a>.</p>
+      {% endif %}
+    {% endif %}
+  </div>
+</body>
+</html>
